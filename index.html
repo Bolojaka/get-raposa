@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>API GET com Botão</title>
+  </head>
+  <body>
+    <h1>API GET com Botão</h1>
+    <p id="resultado">Clique no botão para obter o resultado</p>
+    <button onclick="atualizarResultado()">Obter Resultado</button>
+
+    <script>
+      function atualizarResultado() {
+        // Fazer a chamada da API GET
+        fetch('https://randomfox.ca/floof/')
+          .then(response => response.json())
+          .then(data => {
+            // Atualizar o conteúdo HTML com o resultado da API
+            document.getElementById('resultado').textContent = data.resultado;
+          })
+          .catch(error => console.error(error));
+      }
+    </script>
+  </body>
+</html>
